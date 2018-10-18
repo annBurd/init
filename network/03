@@ -1,0 +1,4 @@
+# Identify the MAC address of the Bluetooth PAN
+
+#ifconfig en0 | grep ether 
+#ifconfig en1 | grep ether
