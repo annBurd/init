@@ -3,3 +3,40 @@
 # Create a scheduled task to run this script everyday at midnight.
 # ! man md5sum
 
+
+#if [ ! -f $HOME/crontab.md5  ]
+#then
+#	md5sum /etc/crontab > $HOME/crontab.md5
+#elif ! md5sum -c $HOME/crontab.md5
+#then
+#	echo "/etc/crontab changed" | mail -s "/etc/crontab was changed !!!!!" root
+#	md5sum /etc/crontab > $HOME/crontab.md5
+#fi
+
+
+
+#crontab -l > file
+#task="0 0 * * * \
+#	md5sum1=\"\$(md5sum /etc/crontab | awk '{ print \$1 }')\" && \
+#	md5sum2=\"\$(cat /etc/crontab.log)\" && \
+#	if [ '\$md5sum1' != '\$md5sum2' ] ; then \
+#		md5sum /etc/crontab | awk '{ print \$1 }' > /etc/crontab.log && \
+#		echo '/etc/crontab modifier le \$(date)' | mail -s '/etc/crontab modifier' root ; fi" >> file
+#crontab file
+#rm file
+
+
+
+
+#if [ ! -e .check.md5 ]
+#then
+#	md5sum /etc/crontab > ./check.md5
+#fi
+#if [[ $(md5sum -c ./check.md5 | grep FAILED) ]]
+#then 
+#	echo "File was changed" | mail -s "your file was changed" root
+#fi
+#if [[ ! $(crontab -l | grep 04.sh) ]]
+#then
+#	(crontab -l 2>/dev/null; echo "0 0 * * * /$(PWD)/04.sh") | crontab -
+#fi 
